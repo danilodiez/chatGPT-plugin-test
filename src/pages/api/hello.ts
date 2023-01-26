@@ -1,13 +1,29 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { Configuration, OpenAIApi } from "openai";
 
+const configuration = new Configuration({
+  apiKey: process.env.SECRET_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
 type Data = {
-  name: string
+  img: string | undefined
 }
 
-export default function handler(
+async function fetchImages(prompt: string) {
+  const response = await openai.createImage({
+  prompt,
+  n: 1,
+  size: "1024x1024",
+});
+  return response.data.data[0].url;
+}
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  const prompt = req.body
+  const img = await fetchImages(prompt);
+  res.status(200).json({ img })
 }
