@@ -8,7 +8,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 type Data = {
-  img: string | undefined
+  img: string | undefined 
 }
 
 async function fetchImages(prompt: string) {
@@ -24,6 +24,12 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const prompt = req.body
+  try {
+
   const img = await fetchImages(prompt);
   res.status(200).json({ img })
+  }
+  catch (error) {
+    return error
+  }
 }

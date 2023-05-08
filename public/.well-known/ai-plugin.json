@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Dall-e(no auth)",
+    "name_for_model": "dalle",
+    "description_for_human": "Plugin to imagine images from dalle",
+    "description_for_model": "Plugin to imagine images from dalle",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://dalle-tests.vercel.app/openapi.yaml",
+        "is_user_authenticated": false
+    },
+    "logo_url": "https://dalle-tests.vercel.app/logo.png",
+    "contact_email": "support@example.com",
+    "legal_info_url": "https://example.com/legal"
+}
