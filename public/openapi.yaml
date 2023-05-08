@@ -4,7 +4,7 @@ info:
     description: Plugin to imagine images from dalle.
     version: "v1"
 servers:
-    - url: https://dalle-tests.vercel.app/
+    - url: https://sea-turtle-app-us8bf.ondigitalocean.app/
 paths:
     api/hello:
         post:
