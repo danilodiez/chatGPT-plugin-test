@@ -26,7 +26,7 @@ export default async function handler(
   const prompt = req.body;
   try {
     const img = await fetchImages(prompt);
-    return res.status(200).json({ img: `![Image (${img})]` });
+    return res.status(200).json({ img: `![Image](${img})` });
   } catch (error) {
     return error;
   }
