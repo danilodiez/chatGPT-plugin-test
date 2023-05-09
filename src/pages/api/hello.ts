@@ -13,7 +13,7 @@ type Data = {
 
 async function fetchImages(prompt: string) {
   const response = await openai.createImage({
-    prompt,
+    prompt: prompt,
     n: 1,
     size: "1024x1024",
   });
@@ -21,13 +21,13 @@ async function fetchImages(prompt: string) {
 }
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data | unknown>
 ) {
   const prompt = req.body;
   try {
-    const img = await fetchImages(prompt);
+    const img = await fetchImages(prompt.prompt);
     return res.status(200).json({ img: `![Image](${img})` });
   } catch (error) {
-    return error;
+    return res.status(400).send(error);
   }
 }
