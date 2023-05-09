@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: dalle Plugin
-  description: Plugin to imagine images from dalle.
+  description: Plugin to imagine images and retrieving images.
   version: 'v1'
 servers:
   - url: https://sea-turtle-app-us8bf.ondigitalocean.app/
@@ -27,6 +27,16 @@ paths:
                   img: 
                     type: string
                     description: The markdown image link containing the imagined image
+        '400':
+          description: There was an error with the generation 
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error: 
+                    type: string
+                    description: The error description
 components:
   schemas:
     addPrompt:
@@ -36,5 +46,5 @@ components:
       properties:
         prompt:
           type: string
-          description: the prompt used by Dalle.
+          description: the prompt used by the api.
           required: true
