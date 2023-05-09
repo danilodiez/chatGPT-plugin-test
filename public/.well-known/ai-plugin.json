@@ -1,9 +1,9 @@
 {
     "schema_version": "v1",
-    "name_for_human": "Dall-e(no auth)",
+    "name_for_human": "Dall-e (Imagine)",
     "name_for_model": "dalle",
     "description_for_human": "Plugin to imagine images from dalle",
-    "description_for_model": "Plugin to imagine images from dalle",
+    "description_for_model": "Plugin to get images from dalle in a markdown format",
     "auth": {
         "type": "none"
     },
@@ -12,7 +12,7 @@
         "url": "https://sea-turtle-app-us8bf.ondigitalocean.app/openapi.yaml",
         "is_user_authenticated": false
     },
-    "logo_url": "https://sea-turtle-app-us8bf.ondigitalocean.app/logo.png",
+    "logo_url": "https://marketing4ecommerce.net/wp-content/uploads/2022/04/ositos-e1650298306276.jpg",
     "contact_email": "support@example.com",
     "legal_info_url": "https://example.com/legal"
 }
