@@ -1,33 +1,40 @@
 openapi: 3.0.1
 info:
-    title: dalle Plugin
-    description: Plugin to imagine images from dalle.
-    version: "v1"
+  title: dalle Plugin
+  description: Plugin to imagine images from dalle.
+  version: 'v1'
 servers:
-    - url: https://sea-turtle-app-us8bf.ondigitalocean.app/
+  - url: https://sea-turtle-app-us8bf.ondigitalocean.app/
 paths:
-    api/hello:
-        post:
-            operationId: imagine 
-            summary: Retrieve an image
-            requestBody:
-                required: true
-                content:
-                    application/json:
-                        schema:
-                            $ref: "#/components/schemas/addPrompt"
-            responses:
-                "200":
-                    description: OK
-
-components:
-    schemas:
-        addPrompt:
-            type: object
-            required:
-                - prompt
-            properties:
-                prompt:
+  api/hello:
+    post:
+      operationId: imagine
+      summary: Retrieve an image
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addPrompt'
+      responses:
+        '200':
+          description: Succesfully retrieved the image
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  img: 
                     type: string
-                    description: the prompt used by Dalle.
-                    required: true
+                    description: The markdown image link containing the imagined image
+components:
+  schemas:
+    addPrompt:
+      type: object
+      required:
+        - prompt
+      properties:
+        prompt:
+          type: string
+          description: the prompt used by Dalle.
+          required: true
