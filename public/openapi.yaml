@@ -37,6 +37,40 @@ paths:
                   error: 
                     type: string
                     description: The error description
+
+  api/explain:
+    post:
+      operationId: explain
+      summary: Answer a question to a given image
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#components/schemas/answerQuestion'
+
+      responses:
+        '200':
+          description: Succesfully answer the question about the image 
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  img: 
+                    type: string
+                    description: The answer to the given question about the image
+        '400':
+          description: There was an error answering the question 
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error: 
+                    type: string
+                    description: The error description
+
 components:
   schemas:
     addPrompt:
@@ -47,4 +81,18 @@ components:
         prompt:
           type: string
           description: the prompt used by the api.
+          required: true
+    answerQuestion:
+      type: object
+      required:
+        - imageToExplain
+        - question
+      properties:
+        imageToExplain:
+          type: string
+          description: the image that the api will use to give an aswer.
+          required: true
+        question:
+          type: string
+          description: the question that the api will answer.
           required: true

@@ -2,8 +2,8 @@
     "schema_version": "v1",
     "name_for_human": "Dall-e (Imagine)",
     "name_for_model": "dalle",
-    "description_for_human": "Plugin to imagine images from dalle",
-    "description_for_model": "Plugin to generate and get images in a markdown format",
+    "description_for_human": "Plugin to imagine images from dalle and asking that image",
+    "description_for_model": "Plugin to generate and get images in a markdown format, and to answer a given question to the image link",
     "auth": {
         "type": "none"
     },
